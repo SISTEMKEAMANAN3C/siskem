@@ -144,7 +144,7 @@ func CreateAllform(publickeykatalogkemanan, mongoenvkatalogfilm, dbname, collnam
 		return GCFReturnStruct(response)
 	}
 
-	if tokenrole != "admin" {
+	if tokenrole != "admin" || tokenrole != "dosen" {
 		response.Message = "Anda tidak memiliki akses"
 		return GCFReturnStruct(response)
 	}
@@ -195,7 +195,7 @@ func HapusFilm(publickeykatalogkemanan, mongoenvkatalogfilm, dbname, collname st
 		return GCFReturnStruct(response)
 	}
 
-	if tokenrole != "admin" {
+	if tokenrole != "admin" || tokenrole != "dosen" {
 		response.Message = "Anda tidak memiliki akses"
 		return GCFReturnStruct(response)
 	}
@@ -238,7 +238,7 @@ func UpdateFilm(publickeykatalogkemanan, mongoenvkatalogfilm, dbname, collname s
 		return GCFReturnStruct(response)
 	}
 
-	if tokenrole != "admin" {
+	if tokenrole != "admin" || tokenrole != "dosen" {
 		response.Message = "Anda tidak memiliki akses"
 		return GCFReturnStruct(response)
 	}

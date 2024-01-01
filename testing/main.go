@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	katalogfilm "sistemkeamanan"
+	katalogfilm "github.com/SISTEMKEAMANAN3C/siskem"
 )
 
 func AuthorizationAPI(w http.ResponseWriter, r *http.Request) {

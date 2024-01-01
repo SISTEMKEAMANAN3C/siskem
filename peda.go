@@ -275,6 +275,6 @@ func AmbilSatuFilm(publickeykatalogkemanan, mongoenvkatalogfilm, dbname, collnam
 }
 func AmbilSemuaFilm(mongoenvkatalogfilm, dbname, collname string, r *http.Request) string {
 	mconn := SetConnection(mongoenvkatalogfilm, dbname)
-	datafilm := Getall(mconn, collname)
-	return GCFReturnStruct(datafilm)
+	datafilmm := Getall(mconn, collname)
+	return GCFReturnStruct(datafilmm)
 }

@@ -121,7 +121,7 @@ func FindFilm(mconn *mongo.Database, collname string, datafilm FormInputAll) For
 	return atdb.GetOneDoc[FormInputAll](mconn, collname, filter)
 }
 
-func Getall(mongoconn *mongo.Database, collection string) []FormInputAll {
-	sidang := atdb.GetAllDoc[[]FormInputAll](mongoconn, collection)
+func Getall(mongoconn *mongo.Database, collection string) FormInputAll {
+	sidang := atdb.GetAllDoc[FormInputAll](mongoconn, collection)
 	return sidang
 }

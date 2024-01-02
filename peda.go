@@ -130,11 +130,11 @@ func CreateAllformm(publickeykatalogkemanan, mongoenvkatalogfilm, dbname, collna
 		response.Message = "Header login tidak ditemukan"
 		return GCFReturnStruct(response)
 	}
-
+	tokenname := DecodeGetName(os.Getenv(publickeykatalogkemanan), header)
 	tokenusername := DecodeGetUsername(os.Getenv(publickeykatalogkemanan), header)
 	tokenrole := DecodeGetRole(os.Getenv(publickeykatalogkemanan), header)
 
-	if tokenusername == "" || tokenrole == "" {
+	if tokenusername == "" || tokenrole == "" || tokenname == "" {
 		response.Message = "Hasil decode tidak ditemukan"
 		return GCFReturnStruct(response)
 	}
@@ -144,7 +144,7 @@ func CreateAllformm(publickeykatalogkemanan, mongoenvkatalogfilm, dbname, collna
 		return GCFReturnStruct(response)
 	}
 
-	if tokenrole != "admin" || tokenrole != "dosen" {
+	if tokenrole != "admin" && tokenrole != "dosen" {
 		response.Message = "Anda tidak memiliki akses"
 		return GCFReturnStruct(response)
 	}
@@ -181,11 +181,12 @@ func HapusFilm(publickeykatalogkemanan, mongoenvkatalogfilm, dbname, collname st
 		response.Message = "Header login tidak ditemukan"
 		return GCFReturnStruct(response)
 	}
+	tokenname := DecodeGetName(os.Getenv(publickeykatalogkemanan), header)
 
 	tokenusername := DecodeGetUsername(os.Getenv(publickeykatalogkemanan), header)
 	tokenrole := DecodeGetRole(os.Getenv(publickeykatalogkemanan), header)
 
-	if tokenusername == "" || tokenrole == "" {
+	if tokenusername == "" || tokenrole == "" || tokenname == "" {
 		response.Message = "Hasil decode tidak ditemukan"
 		return GCFReturnStruct(response)
 	}
@@ -195,7 +196,7 @@ func HapusFilm(publickeykatalogkemanan, mongoenvkatalogfilm, dbname, collname st
 		return GCFReturnStruct(response)
 	}
 
-	if tokenrole != "admin" || tokenrole != "dosen" {
+	if tokenrole != "admin" && tokenrole != "dosen" {
 		response.Message = "Anda tidak memiliki akses"
 		return GCFReturnStruct(response)
 	}
@@ -224,11 +225,11 @@ func UpdateFilm(publickeykatalogkemanan, mongoenvkatalogfilm, dbname, collname s
 		response.Message = "Header login tidak ditemukan"
 		return GCFReturnStruct(response)
 	}
-
+	tokenname := DecodeGetName(os.Getenv(publickeykatalogkemanan), header)
 	tokenusername := DecodeGetUsername(os.Getenv(publickeykatalogkemanan), header)
 	tokenrole := DecodeGetRole(os.Getenv(publickeykatalogkemanan), header)
 
-	if tokenusername == "" || tokenrole == "" {
+	if tokenusername == "" || tokenrole == "" || tokenname == "" {
 		response.Message = "Hasil decode tidak ditemukan"
 		return GCFReturnStruct(response)
 	}
@@ -238,7 +239,7 @@ func UpdateFilm(publickeykatalogkemanan, mongoenvkatalogfilm, dbname, collname s
 		return GCFReturnStruct(response)
 	}
 
-	if tokenrole != "admin" || tokenrole != "dosen" {
+	if tokenrole != "admin" && tokenrole != "dosen" {
 		response.Message = "Anda tidak memiliki akses"
 		return GCFReturnStruct(response)
 	}
